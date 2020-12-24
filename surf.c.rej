@@ -1,0 +1,20 @@
+--- surf.c
++++ surf.c
+@@ -569,7 +570,8 @@ gettogglestats(Client *c)
+ 	togglestats[6] = curconfig[Plugins].val.b ?         'V' : 'v';
+ 	togglestats[7] = curconfig[Style].val.b ?           'M' : 'm';
+ 	togglestats[8] = curconfig[FrameFlattening].val.b ? 'F' : 'f';
+-	togglestats[9] = '\0';
++	togglestats[9] = curconfig[Notifications].val.b ?   'L' : 'l';
++	togglestats[10] = '\0';
+ }
+ 
+ void
+@@ -838,6 +843,7 @@ newwindow(Client *c, const Arg *a, int noembed)
+ 	cmd[i++] = curconfig[Geolocation].val.b ?     "-G" : "-g" ;
+ 	cmd[i++] = curconfig[LoadImages].val.b ?      "-I" : "-i" ;
+ 	cmd[i++] = curconfig[KioskMode].val.b ?       "-K" : "-k" ;
++	cmd[i++] = curconfig[Notifications].val.b ?   "-L" : "-l" ;
+ 	cmd[i++] = curconfig[Style].val.b ?           "-M" : "-m" ;
+ 	cmd[i++] = curconfig[Inspector].val.b ?       "-N" : "-n" ;
+ 	cmd[i++] = curconfig[Plugins].val.b ?         "-P" : "-p" ;
